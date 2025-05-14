@@ -1,17 +1,19 @@
 import React, { use, useState } from 'react';
+import { Link } from 'react-router';
+import './User.css'
 
 const Users = ({ userPromise }) => {
     const initialUsers = use(userPromise)
-    console.log(initialUsers);
+    // console.log(initialUsers);
     const [user, setUser] = useState(initialUsers)
-    console.log(user);
+    // console.log(user);
 
     const handleAddUser = e => {
         e.preventDefault()
         const name = e.target.name.value;
         const email = e.target.email.value;
         const newUser = { name, email }
-        console.log(newUser);
+        // console.log(newUser);
 
         // create User 
         fetch('http://localhost:3000/users', {
@@ -62,7 +64,9 @@ const Users = ({ userPromise }) => {
                 {user?.map(user => (
                     <p key={user._id}>
                         {user.name} : {user.email}
+                        <Link state={{ marginLeft: "12px" }} to={`/users/${user._id}`}>details</Link>
                         <button onClick={() => handleUserDelete(user._id)}>x</button>
+                        <Link state={{ marginLeft: "12px" }} to={`/update/${user._id}`}>Edit</Link>
                     </p>
                 ))}
             </div>

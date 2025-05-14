@@ -11,6 +11,10 @@
   will-change: filter;
   transition: filter 300ms;
 }
+Link {
+  margin-left: 12px;
+  margin-right: 12px;
+ }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
