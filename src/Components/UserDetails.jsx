@@ -7,10 +7,7 @@ const UserDetails = () => {
     return (
         <div>
             <h1>This is user details</h1>
-            <form>
-                
-            </form>
-        </div>
+             </div>
     );
 };
 
